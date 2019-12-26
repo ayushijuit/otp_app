@@ -1,0 +1,24 @@
+<html><head>
+    <link href="https://code.sgo.to/static/droid.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="sms.css" rel="stylesheet" type="text/css">
+    <script src="sms-receiver.js"></script>
+   <!--<meta http-equiv="origin-trial" content="ArGEW53MTeXdzYUYP4KbYcrV2YW3HyARkfe739i9n1Gu7GiE5gpBzVdv8s0av4CeD6e1uwlH4z8R4+miFhU7cAIAAABOeyJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjU1MDEiLCJmZWF0dXJlIjoiU21zUmVjZWl2ZXIiLCJleHBpcnkiOjE1ODA5ODc0NzF9">
+  
+--> 
+</head>
+  <body>
+    <form action="sms_done.html">
+      <h1>Verify phone</h1>
+      <div class="waiting">
+        <p>We have sent a SMS to your phone!</p>
+        <p>Please wait.</p>
+        <p><a href="javascript: alert('tbd')">Edit number</a></p>
+        <p>
+          <input is="sms-receiver" name="otp" regex="\s([A-Za-z0-9]{6})\." autocomplete="one-time-code" placeholder="Code (6 digits)" required="">
+        </p>
+        <p><input type="submit" value="Send code"></p>
+      </div>
+    </form>
+  
+
+</body></html>
