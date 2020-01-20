@@ -37,9 +37,10 @@ customElements.define("sms-receiver",
             let {content} = await navigator.sms.receive();
             console.log("Received an SMS message!");
             console.log(content);
-            alert(content);
+           
             let regex = this.getAttribute("regex");
             let code = new RegExp(regex).exec(content);
+           alert(code);
             if (!code) {
                 console.log("SMS message doesn't match regex");
                  return;
