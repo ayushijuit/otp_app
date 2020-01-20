@@ -26,6 +26,10 @@
  *  API is not available.
  *
  */
+function  successMessage()
+{
+  alert("Success !");
+}
 customElements.define("sms-receiver",
   class extends HTMLInputElement {
     connectedCallback() {
@@ -40,12 +44,14 @@ customElements.define("sms-receiver",
            
             let regex = this.getAttribute("regex");
             let code = new RegExp(regex).exec(content);
-           alert(code);
+          
             if (!code) {
                 console.log("SMS message doesn't match regex");
                  return;
             }
+          
             this.value = code[1];
+            successMessage();
             // this.form.submit();
         } catch (e) {
             console.log(e);
