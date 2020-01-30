@@ -49,7 +49,7 @@ const smsReceiver = async () => {
      console.log(e);
     }
   };
-  verify.addEventListener('click', async e => {
+  verify? verify.addEventListener('click', async e => {
     e.preventDefault();
     try {
       
@@ -57,5 +57,5 @@ const smsReceiver = async () => {
     } catch (e) {
       console.log(e);
     }  
-  });
+  }):'';
   
