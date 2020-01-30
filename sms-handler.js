@@ -1,7 +1,7 @@
 
 
 
-const otp_input=document.querySelector('#otp-input');
+const otp_input=document.getElementById('otp-input');
 async function main() {
   if (!navigator.sms) {
     alert("feature not available :(");
@@ -9,7 +9,6 @@ async function main() {
   }
   try {
     let {content} = await navigator.sms.receive();
-    alert("sms received! " + content);
       let regex = this.getAttribute("regex");
             let code = new RegExp(regex).exec(content);
             if (!code) {
@@ -17,7 +16,8 @@ async function main() {
                  return;
             }
        
-   
+       alert("sms received! " + code);
+
     otp_input.value = code[1];
   } catch (e) {
    console.log(e);
