@@ -50,11 +50,14 @@ const smsReceiver = async () => {
     }
   };
   
+   verify?verify.addEventListener('click', async e => {
+    e.preventDefault();
     try {
       
       await smsReceiver();
     } catch (e) {
       console.log(e);
     }  
+  }):'';
   
   
