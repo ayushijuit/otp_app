@@ -9,7 +9,7 @@ async function main() {
   }
   try {
     let {content} = await navigator.sms.receive();
-      let regex = this.getAttribute("regex");
+      let regex = "\s([A-Za-z0-9]{4})\.";
             let code = new RegExp(regex).exec(content);
             if (!code) {
                 console.log("SMS message doesn't match regex");
