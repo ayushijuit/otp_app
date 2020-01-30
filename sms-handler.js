@@ -17,7 +17,7 @@ async function main() {
        alert("sms received! " + code);
 
                                                 
-  document.getElementById('otp-input').value = code[1];
+  document.getElementById('otp-input').value = code;
   } catch (e) {
    console.log(e);
   }
