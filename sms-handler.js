@@ -1,7 +1,5 @@
 
 
-
-const otp_input=document.getElementById('otp-input');
 async function main() {
   if (!navigator.sms) {
     alert("feature not available :(");
