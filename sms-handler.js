@@ -8,9 +8,9 @@ async function main() {
     return;
   }
   try {
-    let {content} = await navigator.sms.receive();
-      let regex = "\s([A-Za-z0-9]{4})\.";
-            let code = new RegExp(regex).exec(content);
+    
+    const sms = await navigator.sms.receive();
+    const code = sms.content.match(/^[\s\S]*otp=([0-9]{4})[\s\S]*$/m)[1];
             if (!code) {
                 console.log("SMS message doesn't match regex");
                  return;
@@ -18,7 +18,7 @@ async function main() {
        
        alert("sms received! " + code);
 
-    otp_input.value = code[1];
+    otp_input.value = code;
   } catch (e) {
    console.log(e);
   }
