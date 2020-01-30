@@ -20,7 +20,7 @@ async function main() {
    
     otp_input.value = code;
   } catch (e) {
-    alert("time out!");
+   console.log(e);
   }
 }
 
