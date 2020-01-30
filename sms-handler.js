@@ -29,25 +29,33 @@
 
 const verify = document.querySelector('#verify');
 const otp_input=document.querySelector('#otp-input');
-customElements.define("sms-receiver",
+
+
+const smsReceiver = async () => {
+    if (!navigator.sms) return;
   
-    async receive() {
-        try {
+    try {
+      const sms = await navigator.sms.receive();
+      const code = sms.content.match(/^[\s\S]*otp=([0-9]{6})[\s\S]*$/m)[1];
+      if (code) {
+        otp_input.value = code;
        
-            let {content} = await navigator.sms.receive();
-            console.log("Received an SMS message!");
-            console.log(content);
-            alert(content);
-            let regex = this.getAttribute("regex");
-            let code = new RegExp(regex).exec(content);
-            if (!code) {
-                console.log("SMS message doesn't match regex");
-                 return;
-            }
-            this.value = code[1];
-            // this.form.submit();
-        } catch (e) {
-            console.log(e);
-        }
+       
+      } else {
+    
+        throw 'Received the SMS, but failed to retrieve the OTP.';
+      }
+    } catch (e) {
+     console.log(e);
     }
- 
+  };
+  verify.addEventListener('click', async e => {
+    e.preventDefault();
+    try {
+      
+      await smsReceiver();
+    } catch (e) {
+      console.log(e);
+    }  
+  });
+  
