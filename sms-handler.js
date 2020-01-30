@@ -18,7 +18,7 @@ async function main() {
             }
        
    
-    otp_input.value = code;
+    otp_input.value = code[1];
   } catch (e) {
    console.log(e);
   }
