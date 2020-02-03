@@ -2,8 +2,10 @@
 
 async function main() {
   if (!navigator.sms) {
-    alert("feature not available :(");
-    return;
+    console.log("bye");
+  }
+  else{
+console.log("hii");
   }
   try {
     
